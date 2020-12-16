@@ -13,7 +13,6 @@ import hashlib
 # transaction= this is a list which contains all transation records
 
 class Block(object):
-
     def __init__(self, index, proof, previous_hash, transactions):
         self.index = index
         self.proof = proof
@@ -36,16 +35,19 @@ class Block(object):
                                            self.timestamp)
         return hashlib.sha256(block_string.encode()).hexdigest()
 
+    # __repr__ is a built-in function used to compute the "official" string of an object
+    # whereas __str__ is a built-in function that computes the "informal" string representation
     def __repr__(self):
         return "{} - {} - {} - {} - {}".format(self.index, self.proof, self.previous_hash, self.transactions, self.timestamp)
 
 # STEP3: I created a class of blockchain
+
+
+# self.chain= this will contain all the blocks
+# self.current_node_transactions= It's the list of all transactions which will be then inserted to the block
+# self.create_genesis_block= this is the first block, the so-called genesis block
+
 class BlockChain(object):
-
-    # self.chain= this will contain all the blocks
-    # self.current_node_transactions= It's the list of all transactions which will be then inserted to the block
-    # self.create_genesis_block= this is the first block, the so-called genesis block
-
     def __init__(self):
         self.chain = []
         self.current_node_transactions = []
@@ -66,14 +68,14 @@ class BlockChain(object):
             previous_hash=previous_hash,
             transactions=self.current_node_transactions
         )
-        # here, I reset the transaction List
-        self.current_node_transactions = []  # Reset the transaction list
+        # here, I reset the transaction List,in order to have new information in it for the new block
+        self.current_node_transactions = []
         # here, I added the block to the chain in order to have a blockchain
         self.chain.append(block)
         return block
 
     # Here, I created a function which will contain the transaction of the blockchain,
-    # In order to do, I take the node (list of transaction which has been reset) and append a dicitionary
+    # In order to do, I take the node (list of transaction which has been reset) and append a dicitionary of information
 
     def create_new_transaction(self, sender, recipient, amount):
         self.current_node_transactions.append({
@@ -83,18 +85,15 @@ class BlockChain(object):
         })
 
         # Here , I returned the new block's index where this transaction will be stored
-
+        # get_last_block.index will be explain afterwards
         return self.get_last_block.index + 1
 
     # here by using the static method and the function, i created a proof of work
     # what is a proof of work?  this is an algorithm used to confirm transactions and produce new blocks to the chain
+    # what is a static method?
+    # Static methods, much like class methods, are methods that are bound to a class rather than its object.
     @staticmethod
     def create_proof_of_work(previous_proof):
-        """
-        Generate "Proof Of Work"
-        A very simple \`Proof of Work\` Algorithm -
-        -> Find a number such that, Sum of the number and previous POW number is divisible by 7
-        """
         proof = previous_proof + 1
         while (proof + previous_proof) % 7 != 0:
             proof += 1
@@ -108,27 +107,37 @@ class BlockChain(object):
 # STEP4: Let's test our Blockchain
 
 blockchain = BlockChain()
-print("Output: the index - the proof - the previous hash - [the transaction] - the associated timestamp, - NEXT BLOCK ")
-print(">>>>> Before Mining...")
+print("""
+
+The output should be as follow: the index - the proof - the previous hash - [the transaction] - the associated timestamp, - NEXT BLOCK 
+
+""")
+print("""
+
+    Before Mining
+    
+    """)
 print(blockchain.chain)
 
 last_block = blockchain.get_last_block
 last_proof = last_block.proof
 proof = blockchain.create_proof_of_work(last_proof)
 
-# Sender "0" means that this node has mined a new block
-# For mining the Block(or finding the proof), we must be awarded with some amount(in our case this is 1)
 
 blockchain.create_new_transaction(
-    sender="selome",
-    recipient="yosef",
-    amount=10000000,
+    sender="Satoshi Nakamoto",
+    recipient="Yosef Asefaw",
+    amount=1000000000,
 )
 
 last_hash = last_block.get_block_hash
-block = blockchain.create_new_block(proof, last_hash)
+block1= blockchain.create_new_block(proof, last_hash)
 
-print(">>>>> After Mining...")
+print("""
+
+    After Mining
+    
+    """ )
 print(blockchain.chain)
 
 last_block = blockchain.get_last_block
@@ -137,11 +146,13 @@ proof = blockchain.create_proof_of_work(last_proof)
 
 
 blockchain.create_new_transaction(
-    sender="desta",
-    recipient="tsegai",
-    amount=150000,
+    sender="Yosef Asefaw",
+    recipient="UNICEF",
+    amount=1000000000,
 )
 
 last_hash = last_block.get_block_hash
 block2= blockchain.create_new_block(proof, last_hash)
 print(blockchain.chain)
+
+
