@@ -27,6 +27,8 @@ How to run it:
 3.Open the terminal on your computer, subsequently, insert in your terminal : cd Desktop/ . (click enter) and Then insert: python3 Blockchain.py .(click enter) 
 -make sure that the access is allowed, if not try this : System Preferences : Security & Privacy : Privacy panel. Select Full Disk Access, and add [+] your editor as √
 
-4.Afterwards, the blockchain should appear.(if not search your issue on google)
+4.Afterwards, the blockchain should appear.(if not, copy paste your issue and search for it on google)
+
+-Yosef Asefaw
 
 
