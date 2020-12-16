@@ -17,3 +17,15 @@ In the following files you can find "Blockchain.py". This is the file where I ex
 4.Test the Blockchain 
 
 In between those steps, I explain multiple characteristics and features of a block and a blockchain.
+
+How to run it:
+
+1.Copy the script and save it on your desktop under the name "Blockchain.py".
+
+2.Open the terminal of your computer.(make sure that the access is allowed, if not try this : System Preferences : Security & Privacy : Privacy panel. Select Full Disk Access, and add [+] your editor as √)
+
+3.After opening the terminal, insert firstly: cd Desktop/ .Then insert: python3 Blockchain.py . 
+
+4.Afterwards, the blockchain should appear.(if not search your issue on google)
+
+
