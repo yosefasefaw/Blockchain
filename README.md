@@ -29,6 +29,17 @@ How to run it on mac OS:
 
 4.Afterwards, the blockchain should appear.(if not, copy paste your issue and search for it on google)
 
+How to run it on Windows:
+
+1.Download a CPython interpreter.
+
+2.Open the Win + X menu by pressing the Win key + X hotkey.
+
+3.Select Command Prompt (Admin) to open the CP's window.
+
+4.Open the folder that includes your Python script in the Command Prompt by entering 'Cd' followed by the path of the file.
+
+
 -Yosef Asefaw
 
 
