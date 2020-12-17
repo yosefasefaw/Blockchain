@@ -6,7 +6,7 @@ Firstly, Blockchain is a type of database meaning a collection of information wh
 
 Process:
 
-In the following files you can find "Blockchain.py". This is the file where I explain and do a blockchain.The file is organized in 4 steps 
+In the following files you can find "Blockchain.py". This is the file where I explain and do a blockchain.The file is organized in 4 steps.
 
 1.Import the necessary Librairies
 
