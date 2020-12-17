@@ -18,9 +18,9 @@ In the following files you can find "Blockchain.py". This is the file where I ex
 
 In between those steps, I explain multiple characteristics and features of a block and a blockchain.
 
-How to run it:
+How to run it on mac OS:
 
-1.Copy the script and save it on your desktop under the name "Blockchain.py".
+1.Copy the script and paste it into your integrated development environment(IDE). Afterwards, save it on your desktop under the name "Blockchain.py".
 
 2.Open the file 
 
